@@ -1,22 +1,26 @@
 let potteryCatalog = []
 
 export const toSellOrNotToSell = (potteryObj) => {
-    if (potteryObj.weight >= 6){
+    if (potteryObj.cracked === false && potteryObj.weight >= 6){
         potteryObj.price = 40
-    }
-    else {
+        potteryCatalog.push(potteryObj)}
+    
+    
+    else if (potteryObj.cracked === false && potteryObj.weight < 6){
         potteryObj.price = 20
-    }
-    if (potteryObj.cracked === false){ 
-       potteryObj.forSale = "available"
-       potteryCatalog.push(potteryObj)
-    }
+        potteryCatalog.push(potteryObj)}
 
+    
+                
+        
+        return potteryObj
 }
-//toSellOrNotToSell()
-//console.log(potteryCatalog)
+    
+
 
 export const usePottery = () => {
-    return potteryCatalog
+    //return potteryCatalog.map(pot => ({...pot}))
+let copy = [...potteryCatalog]
+return copy
 
 }
